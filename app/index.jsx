@@ -1,20 +1,16 @@
-import { View,Text, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
-const Home=()=>{
-    return(
-        <View style={styles.container}>
-            <Text>HOME PAGE</Text>
-        </View>
-    )
+const index = () => {
+  return (
+    <View>
+      <Text>this is my nihal you weldone you can everthing first progrme</Text>
+    </View>
+  )
 }
 
-export default Home;
+export default index
 
-const styles=StyleSheet.create({
-    container:{
-        display:'flex',
-        flex:1,
-        alignItems:'center',
-        justifyContent:'center',
-    }
+const styles = StyleSheet.create({
+   
 })
