@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View,Button } from 'react-native'
 import React from 'react'
 
 const index = () => {
   return (
     <View>
-      <Text>this is my nihal you weldone you can everthing first progrme</Text>
+      <Text style={styles.text}>this first program</Text>
+      <Text style={{fontSize:30}}>this first program</Text>
+      <Button title='CLICK'/>
     </View>
   )
 }
@@ -12,5 +14,7 @@ const index = () => {
 export default index
 
 const styles = StyleSheet.create({
-   
+  text:{
+    fontSize:40,
+  }
 })
