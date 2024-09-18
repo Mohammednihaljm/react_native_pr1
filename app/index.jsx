@@ -3,8 +3,12 @@ import React from 'react'
 import { Profile } from '../components/Profile'
 import Card from '../components/Card'
 const index = () => {
+
   const handleClick=()=>{
-    console.log("waiting")
+    console.log("clicked")
+  }
+  const onClick=(name,age)=>{
+    console.warn(name,age)
   }
   return (
     <View>
@@ -13,6 +17,7 @@ const index = () => {
       <Button title='PAY NOW' onPress={handleClick} />
       <Profile/>
       <Card/>
+      <Button title='click' color={"black"} onPress={()=>onClick('nihal',30)}/>
     </View>
   )
 }
