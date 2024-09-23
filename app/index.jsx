@@ -9,7 +9,7 @@ const index = () => {
   const clickMe=()=>{
 
     setState('mohammed nihal jm')
-    console.warn(`${name}`)
+    // console.warn(`${name}`)
 
   }
 
@@ -29,11 +29,26 @@ const index = () => {
       <Profile/>
       <Card/>
       <Button title='click' color={"black"} onPress={()=>onClick('nihal',30)}/> */}
+      <Child name={name} age={25}/>
     </View>
   )
 }
 
+const Child=({name,age})=>{
+  console.warn(name,age)
+  return(
+    <View>
+      <Text>I AM CHILD CODER:{name}</Text>
+      <Text>my age:{age}</Text>
+    </View>
+  )
+}
+
+
 export default index
+
+
+
 
 const styles = StyleSheet.create({
   text:{
