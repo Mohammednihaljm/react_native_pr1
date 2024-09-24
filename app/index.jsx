@@ -2,6 +2,7 @@ import { StyleSheet, Text, View,Button } from 'react-native'
 import React, { useState } from 'react'
 import { Profile } from '../components/Profile'
 import Card from '../components/Card'
+import { externalStyle } from '../style'
 const index = () => {
 
   const[name,setState]=useState('nihal')
@@ -21,7 +22,7 @@ const index = () => {
   // }
   return (
     <View>
-      <Text>MY NAME IS:{name}</Text>
+      <Text style={{color:"pink",fontSize:25,backgroundColor:"black"}}>MY NAME IS:{name}</Text>
       <Button title='click' onPress={clickMe}/>
       {/* <Text style={styles.text}>this first program</Text>
       <Text style={{fontSize:30}}>this first program</Text>
@@ -38,8 +39,12 @@ const Child=({name,age})=>{
   console.warn(name,age)
   return(
     <View>
-      <Text>I AM CHILD CODER:{name}</Text>
-      <Text>my age:{age}</Text>
+      <Text style={styles.heading}>I AM CHILD CODER:{name}</Text>
+      <Text style={styles.heading}>I AM CHILD CODER:{name}</Text>
+      <Text style={styles.heading}>I AM CHILD CODER:{name}</Text>
+      <Text style={styles.heading}>I AM CHILD CODER:{name}</Text>
+      <Text style={styles.heading}>I AM CHILD CODER:{name}</Text>
+      <Text style={externalStyle.heading}>my age:{age}</Text>
     </View>
   )
 }
@@ -51,7 +56,14 @@ export default index
 
 
 const styles = StyleSheet.create({
-  text:{
-    fontSize:50,
+  heading:{
+    color:"red",
+    backgroundColor:"black",
+    fontSize:30,
+    fontWeight:"500",
+    textAlign:"center",
+    padding:10,
+    margin:10,
+    borderRadius:10,
   }
 })
