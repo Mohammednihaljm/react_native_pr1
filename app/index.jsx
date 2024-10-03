@@ -1,39 +1,50 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { TextInput } from 'react-native'
-import { Button } from 'react-native'
-import { useState } from 'react'
+import { FlatList } from 'react-native'
+
+const DATA=[
+  {id:"1",title:'alfam'},
+  {id:"2",title:'mandhi'},
+  {id:"3",title:'biriyan'},
+  {id:"4",title:'rice'},
+  {id:"5",title:'porotta'},
+  {id:"6",title:'chicken curry'},
+  {id:"7",title:'beef curry'},
+  {id:"7",title:'beef curry'},
+  {id:"7",title:'beef curry'},
+  {id:"7",title:'beef curry'},
+  {id:"7",title:'beef curry'},
+  {id:"7",title:'beef curry'},
+  {id:"7",title:'beef curry'},
+  {id:"7",title:'beef curry'},
+  {id:"7",title:'beef curry'},
+  {id:"7",title:'beef curry'},
+  {id:"7",title:'beef curry'},
+  {id:"7",title:'beef curry'},
+]
 
 const index = () => {
-  const[name,setName]=useState("")
-  const[email,setEmail]=useState("")
-  const[password,setPassword]=useState("")
-  return (
-    <View>
-      <Text>sign up</Text>
-      <View>
-        <Text>NAME:{name}</Text>
-        <TextInput placeholder='name' style={styles.input} onChangeText={(val)=>{setName(val)}}/>
-      </View>
-      <View>
-        <Text>Email:{email}</Text>
-        <TextInput placeholder='email' style={styles.input} onChangeText={(val)=>{setEmail(val)}} keyboardType='emai-address'/>
-      </View>
-      <View>
-        <Text>password:{password}</Text>
-        <TextInput placeholder='password' style={styles.input} onChangeText={(val)=>{setPassword(val)}} secureTextEntry={true}/>
-      </View>
-      <Button title='click me'/>
+  const renderItem=({item})=>(
+    <View style={styles.item}>
+      <Text style={styles.title}>{item.id}+{item.title}</Text>
     </View>
+  )
+  return (
+    <FlatList data={DATA} renderItem={renderItem} keyExtractor={item=>item.id}/>
+    
   )
 }
 
 export default index
 
 const styles = StyleSheet.create({
-  input:{
+  item:{
+    padding:20,
     borderWidth:1,
-    padding:10,
-    fontSize:12,
-  }
+    color:'black',
+    borderBottomColor:"#ccc"
+  },
+  title:{
+    fontSize:18,
+  },
 })
