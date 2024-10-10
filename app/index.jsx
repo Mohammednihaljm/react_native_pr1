@@ -21,10 +21,10 @@ const DATA = [
 const index = () => {
   return (
     <ScrollView>
-    <View>
+    <View style={{display:"flex",flexDirection:"col",flexWrap:"wrap"}}>
       {DATA.map((item) => {
         return (
-          <View>
+          <View style={styles.title}>
             <Text style={styles.item}>{item.title}</Text>
           </View>
         );
@@ -45,5 +45,10 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
+    backgroundColor:"pink",
+    padding:20,
+    textAlign:"center",
+    marginHorizontal:2,
+
   },
 });
