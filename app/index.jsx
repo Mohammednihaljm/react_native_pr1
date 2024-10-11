@@ -1,5 +1,7 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { FlatList } from "react-native";
+import ChildComponent from "../components/ChildComponent";
 
 const DATA = [
   { id: "1", title: "alfam" },
@@ -12,25 +14,23 @@ const DATA = [
   { id: "8", title: "beef 1" },
   { id: "9", title: "beef 2" },
   { id: "10", title: "beef 3" },
-  { id: "11", title: "4" },
-  { id: "12", title: "5" },
-  { id: "13", title: "6" },
-  { id: "14", title: "7" },
+  { id: "11", title: "nice pathri" },
+  { id: "12", title: "fried" },
+  { id: "13", title: "kunafa" },
+  { id: "14", title: "shawram" },
 ];
 
 const index = () => {
+  const renderItem=({item})=>(
+   <View style={styles.item}>
+    <ChildComponent item={item} />
+   </View>
+  );
   return (
-    <ScrollView>
-    <View style={{display:"flex",flexDirection:"col",flexWrap:"wrap"}}>
-      {DATA.map((item) => {
-        return (
-          <View style={styles.title}>
-            <Text style={styles.item}>{item.title}</Text>
-          </View>
-        );
-      })}
+    <View>
+      <FlatList data={DATA} renderItem={renderItem} keyExtractor={(item)=>item.id} />
     </View>
-    </ScrollView>
+
   );
 };
 
