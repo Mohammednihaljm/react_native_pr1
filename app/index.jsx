@@ -1,54 +1,46 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { FlatList } from "react-native";
-import ChildComponent from "../components/ChildComponent";
-
-const DATA = [
-  { id: "1", title: "alfam" },
-  { id: "2", title: "mandhi" },
-  { id: "3", title: "biriyan" },
-  { id: "4", title: "rice" },
-  { id: "5", title: "porotta" },
-  { id: "6", title: "chicken curry" },
-  { id: "7", title: "beef curry" },
-  { id: "8", title: "beef 1" },
-  { id: "9", title: "beef 2" },
-  { id: "10", title: "beef 3" },
-  { id: "11", title: "nice pathri" },
-  { id: "12", title: "fried" },
-  { id: "13", title: "kunafa" },
-  { id: "14", title: "shawram" },
-];
+import { SectionList, StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
 const index = () => {
-  const renderItem=({item})=>(
-   <View style={styles.item}>
-    <ChildComponent item={item} />
-   </View>
-  );
+
+  const DATA=[
+    {
+      title:"vegetable",
+      data:["onino","tomato","potato"]
+    },
+    {
+      title:"fruits",
+      data:["pinapple","pappaya","apple"]
+    },
+    {
+      title:"diary",
+      data:["milk","cheese"]
+    }
+  ]
+  const RenderItem=({item})=>{
+    return(
+      <View>
+        <Text>
+         {item}
+        </Text>
+      </View>
+    )
+  }
   return (
     <View>
-      <FlatList data={DATA} renderItem={renderItem} keyExtractor={(item)=>item.id} />
+      <Text>
+        <SectionList sections={DATA} renderItem={RenderItem} renderSectionHeader={({section:{title}})=>{
+            return(
+              <View>
+                <Text>{title}</Text>
+              </View>
+            )
+        }}/>
+      </Text>
     </View>
+  )
+}
 
-  );
-};
+export default index
 
-export default index;
-
-const styles = StyleSheet.create({
-  item: {
-    padding: 20,
-    borderWidth: 1,
-    color: "black",
-    borderBottomColor: "#ccc",
-  },
-  title: {
-    fontSize: 18,
-    backgroundColor:"pink",
-    padding:20,
-    textAlign:"center",
-    marginHorizontal:2,
-
-  },
-});
+const styles = StyleSheet.create({})
