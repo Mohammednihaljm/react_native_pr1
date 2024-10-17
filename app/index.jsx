@@ -1,46 +1,30 @@
-import { SectionList, StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React,{Component} from "react";
+const { View,Text } = require("react-native");
 
-const index = () => {
 
-  const DATA=[
-    {
-      title:"vegetable",
-      data:["onino","tomato","potato"]
-    },
-    {
-      title:"fruits",
-      data:["pinapple","pappaya","apple"]
-    },
-    {
-      title:"diary",
-      data:["milk","cheese"]
-    }
-  ]
-  const RenderItem=({item})=>{
+
+class index extends Component{
+  render(){
     return(
       <View>
-        <Text>
-         {item}
-        </Text>
+        <Text>index</Text>
+        <Child/>
       </View>
     )
   }
-  return (
-    <View>
-      <Text>
-        <SectionList sections={DATA} renderItem={RenderItem} renderSectionHeader={({section:{title}})=>{
-            return(
-              <View>
-                <Text>{title}</Text>
-              </View>
-            )
-        }}/>
-      </Text>
-    </View>
-  )
+}
+
+
+
+
+class Child extends Component{
+  render(){
+    return(
+      <View>
+        <Text>I AM CHILD component</Text>
+      </View>
+    )
+  }
 }
 
 export default index
-
-const styles = StyleSheet.create({})
