@@ -1,15 +1,31 @@
 import React,{Component} from "react";
-const { View,Text } = require("react-native");
+const { View,Text, Button } = require("react-native");
 
 
 
 class index extends Component{
+  constructor(){
+    super()
+    this.state={
+      count:0
+    }
+  }
+  handleIncrement=()=>{
+    this.setState({count:this.state.count+1})
+  }
+  handleDicrement=()=>{
+    this.setState({count:this.state.count-1})
+  }
   render(){
     return(
       <View>
-        <Text>index</Text>
-        <Child/>
+        <Text>count:{this.state.count}</Text>
+        <View>
+          <Button title="increment" onPress={this.handleIncrement}/>
+          <Button title="dicrement" onPress={this.handleDicrement}/>
+        </View>
       </View>
+      
     )
   }
 }
@@ -17,14 +33,6 @@ class index extends Component{
 
 
 
-class Child extends Component{
-  render(){
-    return(
-      <View>
-        <Text>I AM CHILD component</Text>
-      </View>
-    )
-  }
-}
+
 
 export default index
