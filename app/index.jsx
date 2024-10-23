@@ -1,38 +1,26 @@
-import React,{Component} from "react";
-const { View,Text, Button } = require("react-native");
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import { useState } from 'react'
+import { Button } from 'react-native'
 
-
-
-class index extends Component{
-  constructor(){
-    super()
-    this.state={
-      count:0
-    }
-  }
-  handleIncrement=()=>{
-    this.setState({count:this.state.count+1})
-  }
-  handleDicrement=()=>{
-    this.setState({count:this.state.count-1})
-  }
-  render(){
-    return(
+const index = () => {
+  const [counte, setcounte] = useState(0)
+ function decrement(){
+  return(
+    setcounte(counte-1)
+  )
+ }
+  return (
+    <View>
+      <Text>count:{counte}</Text>
       <View>
-        <Text>count:{this.state.count}</Text>
-        <View>
-          <Button title="increment" onPress={this.handleIncrement}/>
-          <Button title="dicrement" onPress={this.handleDicrement}/>
-        </View>
+        <Button title='increment' onPress={()=>setcounte(counte+1)}/>
+        <Button title='dicrement'onPress={decrement}/>
       </View>
-      
-    )
-  }
+    </View>
+  )
 }
 
-
-
-
-
-
 export default index
+
+const styles = StyleSheet.create({})
