@@ -1,22 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { useState } from 'react'
-import { Button } from 'react-native'
+import { Button, StyleSheet, Text, View } from 'react-native'
+import React, { useState } from 'react'
 
 const index = () => {
-  const [counte, setcounte] = useState(0)
- function decrement(){
-  return(
-    setcounte(counte-1)
-  )
- }
+  const [isLoggedin,setLoggedin]=useState(false)
   return (
     <View>
-      <Text>count:{counte}</Text>
-      <View>
-        <Button title='increment' onPress={()=>setcounte(counte+1)}/>
-        <Button title='dicrement'onPress={decrement}/>
-      </View>
+      <Text>index</Text>
+      {isLoggedin?(<Button title='logout' onPress={()=>setLoggedin(false)} />):(<Button title='login' onPress={()=>setLoggedin(true)}/>)}
+      
+      
     </View>
   )
 }
